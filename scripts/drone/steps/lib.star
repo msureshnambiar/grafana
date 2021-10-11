@@ -62,6 +62,7 @@ def initialize_step(edition, platform, ver_mode, is_downstream=False, install_de
             'tar -C bin -xzvf dockerize-linux-amd64-v0.6.1.tar.gz',
             'rm dockerize-linux-amd64-v0.6.1.tar.gz',
             'yarn info --cache',
+            'yarn install --immutable',
         ])
     if edition in ('enterprise', 'enterprise2'):
         source_commit = ''

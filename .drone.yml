@@ -24,6 +24,7 @@ steps:
   - tar -C bin -xzvf dockerize-linux-amd64-v0.6.1.tar.gz
   - rm dockerize-linux-amd64-v0.6.1.tar.gz
   - yarn info --cache
+  - yarn install --immutable
   environment:
     YARN_CACHE_FOLDER: /drone/src/yarncache
   depends_on:
@@ -147,6 +148,6 @@ get:
 
 ---
 kind: signature
-hmac: c24dbf05afd42526aca4719b0cd27da2c73ba909c61987a68924572f34fea8a5
+hmac: 3fceda053d3f14ca0d8ac865a386242128f400db86575ae02b76c84e089fd24c
 
 ...
