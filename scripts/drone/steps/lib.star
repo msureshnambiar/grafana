@@ -116,7 +116,7 @@ def initialize_step(edition, platform, ver_mode, is_downstream=False, install_de
             'name': 'initialize',
             'image': build_image,
             'depends_on': [
-                   'restore-cache'
+                   'clone'
                 ],
             'environment': {
                 'YARN_CACHE_FOLDER': '/drone/src/yarncache',
@@ -400,7 +400,6 @@ def test_frontend_step():
         'name': 'test-frontend',
         'image': build_image,
         'depends_on': [
-            'restore-cache',
             'initialize'
         ],
         'environment': {

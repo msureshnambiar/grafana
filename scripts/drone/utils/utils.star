@@ -35,7 +35,7 @@ def pipeline(
         'name': name,
         'trigger': trigger,
         'services': services,
-        'steps': finalSteps + initialize_step(
+        'steps': initialize_step(
             edition, platform, is_downstream=is_downstream, install_deps=install_deps, ver_mode=ver_mode,
         ) + steps,
         'depends_on': depends_on,

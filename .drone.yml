@@ -8,22 +8,6 @@ platform:
   arch: amd64
 
 steps:
-- name: restore-cache
-  pull: always
-  image: jduchesnegrafana/drone-cache:v1.2.0-rc0-dirtytest
-  settings:
-    backend: gcs
-    bucket: test-julien
-    cache_key: test123
-    json_key:
-      from_secret: tf_google_credentials
-    mount:
-    - yarncache
-    - node_modules
-    restore: true
-  depends_on:
-  - clone
-
 - name: identify-runner
   image: alpine:3.14.2
   commands:
@@ -43,7 +27,7 @@ steps:
   environment:
     YARN_CACHE_FOLDER: /drone/src/yarncache
   depends_on:
-  - restore-cache
+  - clone
 
 - name: codespell
   image: grafana/build-container:1.4.2
@@ -79,7 +63,6 @@ steps:
     TEST_MAX_WORKERS: 50%
     YARN_CACHE_FOLDER: /drone/src/yarncache
   depends_on:
-  - restore-cache
   - initialize
 
 - name: build-frontend
@@ -164,6 +147,6 @@ get:
 
 ---
 kind: signature
-hmac: b2fcbc090736e4eb2da90268804bbeac4d278982c3781063720ea2ef53ac8620
+hmac: c24dbf05afd42526aca4719b0cd27da2c73ba909c61987a68924572f34fea8a5
 
 ...
