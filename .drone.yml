@@ -23,6 +23,7 @@ steps:
   - curl -fLO https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz
   - tar -C bin -xzvf dockerize-linux-amd64-v0.6.1.tar.gz
   - rm dockerize-linux-amd64-v0.6.1.tar.gz
+  - yarn cache clean
   - yarn info --cache
   - yarn install --immutable
   environment:
@@ -148,6 +149,6 @@ get:
 
 ---
 kind: signature
-hmac: 3fceda053d3f14ca0d8ac865a386242128f400db86575ae02b76c84e089fd24c
+hmac: 4fedc26cde36cd0a06d97bca863fb8af223632a31b7cc9fc3ddda8c12fe05fee
 
 ...
