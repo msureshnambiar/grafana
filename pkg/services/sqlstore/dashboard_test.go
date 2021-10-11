@@ -204,7 +204,7 @@ func TestDashboardDataAccess(t *testing.T) {
 		require.NoError(t, err)
 		require.Equal(t, query.Result.FolderId, int64(0))
 		require.Equal(t, query.Result.CreatedBy, savedDash.CreatedBy)
-		// So(query.Result.Created, ShouldHappenWithin, 3*time.Second, savedDash.Created)
+		require.WithinDuration(t, query.Result.Created, savedDash.Created, 3*time.Second)
 		require.Equal(t, query.Result.UpdatedBy, int64(100))
 		require.False(t, query.Result.Updated.IsZero())
 	})
